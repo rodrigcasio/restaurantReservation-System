@@ -1,7 +1,6 @@
 #include "h_RestaurantMemoryManagement.hpp"
 #include "h_CustomerMemoryManagement.hpp"
 #include "h_TableMemoryManagement.hpp"
-#include "fns_RemoveElement.cpp"
 #include <memory>
 #include <iostream>
 
