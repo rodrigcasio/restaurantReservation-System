@@ -49,7 +49,7 @@ void Restaurant::releaseTable(int tableNumber){ // 18      placing the n# of the
         if(table->getNumber() == tableNumber){  // 20.
             found = true;
             if(!table->getIsAvailable()) table->release();  // 21, 22.
-                       
+
             // waitList will be updated when table is released.
             notifyWaitlist();   // 30.
             break; 
