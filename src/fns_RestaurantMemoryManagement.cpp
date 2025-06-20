@@ -52,7 +52,7 @@ void Restaurant::releaseTable(int tableNumber){ // 18      placing the n# of the
             if(!table->getIsAvailable()) table->release();  // 21, 22.
             auto customer = table->getCurrentCustomer();   // 36.1.2
             if(customer){               
-                removeSharedElement(activeCustomers, customer);   
+                removeSharedElement(activeCustomers, customer);  // 36.1.2 removes customer from activeCustomers vector
                 table->removeCustomer();    // 36.1.3
             }
             // waitList will be updated when table is released.
