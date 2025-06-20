@@ -7,7 +7,7 @@
 
 Restaurant::Restaurant(int initialTableCount): tableCount(initialTableCount){   // 6.   Define Constructor 
     // using the constructor of table 'Table(int num)'
-    for(int i = 1; i <= initialTableCount; ++i){               // 6. loop through 1 to "initialTableCount"
+    for(int i = 1; i <= tableCount; ++i){               // 6. loop through 1 to "initialTableCount"
         tables.push_back(std::make_unique<Table>(i));          //    creates a table using "std::make_unique<Table>(i);
                                                                //    adding each table to "tables" vector with "tables.push_back(std::make_unique<Table>(i);"
     }                                                           
@@ -52,7 +52,7 @@ void Restaurant::releaseTable(int tableNumber){ // 18      placing the n# of the
             if(!table->getIsAvailable()) table->release();  // 21, 22.
             auto customer = table->getCurrentCustomer();   // 36.1.2
             if(customer){               
-                removeSharedElement(activeCustomers, customer);  // 36.1.2 removes customer from activeCustomers vector
+                removeSharedElement(activeCustomers, customer);   
                 table->removeCustomer();    // 36.1.3
             }
             // waitList will be updated when table is released.
