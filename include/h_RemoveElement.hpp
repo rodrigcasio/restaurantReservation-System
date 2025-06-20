@@ -17,7 +17,7 @@ void removeElement(std::vector<std::weak_ptr<Customer>>& vec, const std::weak_pt
 
 // function to remove the shared_ptr from the activeCustomers vector
 
-void removeSharedElemen(std::vector<std::shared_ptr<Customer>>& vect, const std::shared_ptr<Customer>& ptr2){
+void removeSharedElement(std::vector<std::shared_ptr<Customer>>& vect, const std::shared_ptr<Customer>& ptr2){
     vect.erase(std::remove_if(vect.begin(), vect.end(), [&ptr2](const std::shared_ptr<Customer>& element){
         return !element.owner_before(ptr2) && !ptr2.owner_before(element);
     }),
