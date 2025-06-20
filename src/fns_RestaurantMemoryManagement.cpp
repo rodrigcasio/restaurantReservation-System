@@ -18,6 +18,7 @@ bool Restaurant::reserveTable(const std::shared_ptr<Customer>& customer){       
     for(const std::unique_ptr<Table>& table : tables){                              // 8. loop through vector 'tables' (tables are smart "unique_ptr's"
         if(table->getIsAvailable()){                                                // 9.  accessing the method 'getIsAvailable' through pointer with (->) operator.
             table->reserve();                                                       // 10. reserves table and add customer to activeCustomers vector
+            table->assignCustomer(customer);    // 36.1
             activeCustomers.push_back(customer);
             std::cout << "Table reserved for customer \"" << customer->getCustomerName() << "\" successfully." << std::endl;
             return true;
@@ -49,7 +50,11 @@ void Restaurant::releaseTable(int tableNumber){ // 18      placing the n# of the
         if(table->getNumber() == tableNumber){  // 20.
             found = true;
             if(!table->getIsAvailable()) table->release();  // 21, 22.
-
+            auto customer = table->getCurrentCustomer();   // 36.1.2
+            if(customer){               
+                removeSharedElement(activeCustomers, customer);   
+                table->removeCustomer();    // 36.1.3
+            }
             // waitList will be updated when table is released.
             notifyWaitlist();   // 30.
             break; 
