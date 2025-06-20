@@ -5,6 +5,9 @@
 #include "h_CustomerMemoryManagement.hpp"
 #include "h_TableMemoryManagement.hpp"
 
+class Customer;    // if 'h_RestaurnatMemoryManagemnt.hpp" uses Customer or Table pointers/references
+class Table;
+
 class Restaurant {
     private:
         std::vector<std::unique_ptr<Table>> tables;     // 2.                 // ensures exclusive ownership of Table instance 
