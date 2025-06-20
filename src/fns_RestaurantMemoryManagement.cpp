@@ -41,13 +41,15 @@ void Restaurant::printWaitList() const{ // 12.
     }
 }
 
+// 36. Improve the release table functionality by removing the customer from the activeCustomer list
+
 void Restaurant::releaseTable(int tableNumber){ // 18      placing the n# of the table
     bool found = false;
     for(const std::unique_ptr<Table>& table : tables){  // 19.
         if(table->getNumber() == tableNumber){  // 20.
             found = true;
             if(!table->getIsAvailable()) table->release();  // 21, 22.
-            
+                       
             // waitList will be updated when table is released.
             notifyWaitlist();   // 30.
             break; 
