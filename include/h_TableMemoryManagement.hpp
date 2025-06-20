@@ -1,10 +1,14 @@
 #ifndef TABLE_MEMORY_MANAGEMENT_HPP
 #define TABLE_MEMORY_MANAGEMENT_HPP
+#include <memory>
+
+class Customer;
 
 class Table {
     private:
         int number;
         bool isAvailable;
+        std::shared_ptr<Customer> currentCustomer;
 
     public: 
         Table(int num);
@@ -12,6 +16,10 @@ class Table {
         void release();
         bool getIsAvailable() const;
         int getNumber() const;
+        void assignCustomer(const std::shared_ptr<Customer>& customer); // 36.1
+        void removeCustomer(); // 36.1.2
+        std::shared_ptr<Customer> getCurrentCustomer() const;
+        
 };
 
 #endif
