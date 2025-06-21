@@ -8,7 +8,7 @@ class Customer{
     std::string name;
 
     public:
-        Customer(const std::string& n);
+        explicit Customer(const std::string& n);
         std::string getCustomerName() const;
 };
 
