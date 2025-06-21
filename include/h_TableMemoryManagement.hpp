@@ -11,7 +11,7 @@ class Table {
         std::shared_ptr<Customer> currentCustomer;
 
     public: 
-        Table(int num);
+        explicit Table(int num);
         void reserve();
         void release();
         bool getIsAvailable() const;
