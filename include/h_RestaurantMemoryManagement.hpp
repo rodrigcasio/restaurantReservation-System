@@ -17,7 +17,7 @@ class Restaurant {
         void notifyWaitlist(); // 23. 
     
     public:
-        Restaurant(int initialTableCount);// 5.
+        explicit Restaurant(int initialTableCount);// 5.
         bool reserveTable(const std::shared_ptr<Customer>& customer);   // 7.
         void printWaitList() const; // 12.
         void releaseTable(int tableNumber); // 18.
