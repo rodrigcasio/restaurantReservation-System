@@ -6,8 +6,10 @@ int main() {
     // 31.
     Restaurant restaurant(5); 
 
-    // 32. 
-    std::shared_ptr<Customer> customer1 = std::make_shared<Customer>("Rodrigo Casio");
+    // 32. // dynamically allocates a new "Customer" object on the heap, passing "Rodrigo Casio" to the constructor. It returns a shared_ptr<Customer> that owns this object.
+           // It is assign this smart pointer to customer1, so customer1 manages the lifetime of object.
+
+    std::shared_ptr<Customer> customer1 = std::make_shared<Customer>("Rodrigo Casio");      
     std::shared_ptr<Customer> customer2 = std::make_shared<Customer>("John Mayer");
     std::shared_ptr<Customer> customer3 = std::make_shared<Customer>("Rocio Garcia");
     std::shared_ptr<Customer> customer4 = std::make_shared<Customer>("Chris Martin");
