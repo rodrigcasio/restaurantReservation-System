@@ -1,6 +1,6 @@
-# RestaurantReservation-System: C++ Console Project
+# Restaurant Reservation System (C++)
 
-A lightweight C++ console-based system for managing restaurant table reservations, designed to demonstrate the use of **smart pointers** and **memory management** through customer, table, and waitlist handling.
+This is a small C++ project I made to practice using smart pointers and memory management. The program simulates a simple restaurant reservation system where you can reserve tables, manage a waitlist, and handle customers using different types of smart pointers.
 
 ## Features
 
@@ -9,23 +9,30 @@ A lightweight C++ console-based system for managing restaurant table reservation
 - **Customer Management**: Add customers, track active and waiting customers using smart pointers.
 - **Memory Safety**: Uses `unique_ptr`, `shared_ptr`, and `weak_ptr` to manage dynamic memory and avoid leaks.
 
-## C++ Principles
+## Smart Pointers and Memory Management (in simple terms)
 
-- **Smart Pointers**: Demonstrates `unique_ptr` for exclusive table ownership, `shared_ptr` for active customers, and `weak_ptr` for the waitlist.
-- **Encapsulation**: Separates logic into header (`include/`) and source (`src/`) files.
-- **Vectors**: Uses `std::vector` for dynamic management of tables and customers.
-- **OOP**: Applies object-oriented design for extensibility and clarity.
+- **unique_ptr**: Used for tables that can only be owned by one customer at a time. This helps prevent memory leaks and makes sure only one person can reserve a table.
+- **shared_ptr**: Used for customers who are actively using tables. Multiple parts of the program can "share" the same customer data safely.
+- **weak_ptr**: Used for the waitlist. This lets us keep track of waiting customers without keeping them "alive" if they're not needed anymore.
+- **Memory Safety**: Smart pointers automatically clean up memory when it's no longer needed, so we don't have to worry about memory leaks.
+
+These helped me learn how to manage memory safely in C++ and avoid common problems.
 
 ## Purpose
 
-Developed as part of my C++ learning journey to showcase my understanding of **smart pointers**, **memory management**, and system design. This project builds on my previous work, such as `LibrarySystem` and `SchoolSystem`.
+I made this project to get better at using smart pointers and understanding memory management in C++. It helped me learn how to organize code for a small system and how to use different types of pointers for different situations.
 
 ## How to Run
 
-```sh
-g++ src/*.cpp -I include -o restaurantReservation
-./restaurantReservation
-```
+1. Make sure you have a C++ compiler (like g++) installed.
+2. Compile the code:
+   ```
+   g++ src/*.cpp -I include -o restaurantReservation
+   ```
+3. Run the program:
+   ```
+   ./restaurantReservation
+   ```
 
 ## Sample Output
 
@@ -51,4 +58,5 @@ Customer "Albus Dombuldore" was removed from the waiting-list and reserved a tab
 
 ## Author
 
-Rodrigo Casio ([View my GitHub profile] (https://github.com/rodrigcasio))
+Rodrigo Casio  
+[My GitHub Profile](https://github.com/rodrigcasio)
